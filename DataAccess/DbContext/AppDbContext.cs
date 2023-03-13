@@ -13,6 +13,7 @@ namespace DataAccess
     public class AppDbContext : DbContext
     {
         public virtual DbSet<Login> Logins { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,6 +24,9 @@ namespace DataAccess
         {
             modelBuilder.Entity<Login>()
                 .ToTable("Logins");   
+            
+            modelBuilder.Entity<Reservation>()
+                .ToTable("Reservations");   
             
         }
 
