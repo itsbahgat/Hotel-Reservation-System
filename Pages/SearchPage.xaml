@@ -8,10 +8,25 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SearchPage">
 
-    <Grid>
-        <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
-            <Label Content="Search" Foreground="Black" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        </Border>
+    <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColor}">
 
-    </Grid>
+        <Grid>
+            <TextBox x:Name="SearchTermTextBox" 
+                     Width="282" 
+                     Tag="🔎 Search" 
+                     Style="{StaticResource PlaceholderTextBox}" 
+                     Height="40" 
+                     FontSize="16" 
+                     Margin="240,40,278,370"
+                     BorderThickness="2"
+                     />
+
+
+        </Grid>
+
+
+    </Border>
+
+
+
 </Page>

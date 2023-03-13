@@ -9,7 +9,7 @@
       Title="DetailsPage">
 
     <Grid>
-        <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+        <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColor}">
             <Label Content="Guest Details" Foreground="Black" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
     </Grid>

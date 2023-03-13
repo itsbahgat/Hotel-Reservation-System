@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace HotelManagementSystem.Pages
 {
-    /// <summary>
-    /// Interaction logic for DetailsPage.xaml
-    /// </summary>
     public partial class DetailsPage : Page
     {
         public DetailsPage()

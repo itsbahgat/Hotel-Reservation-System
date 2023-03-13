@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelManagementSystem"
         mc:Ignorable="d" Name="home"
-        Title="MainWindow" Height="650" Width="1000"
+        Title="MainWindow" Height="550" Width="1000"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         Background="Transparent" AllowsTransparency="True"
         ResizeMode="NoResize" WindowState="Normal">
@@ -16,7 +16,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!-- Start: GridColum Left-->
-            <Border CornerRadius="8 0 0 8" Background="{DynamicResource SecundaryBackgroundColor}">
+            <Border CornerRadius="8 0 0 8" Background="{DynamicResource SecondaryBackgroundColor}">
                 <Grid x:Name="gridMenu" Width="60">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>

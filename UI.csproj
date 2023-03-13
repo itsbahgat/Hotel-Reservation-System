@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <RootNamespace>HotelManagementSystem</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Avatars\avatar-2.jpg" />
+    <None Remove="Pages\DetailsPage.xaml" />
+    <None Remove="Pages\FoodMenuPage.xaml" />
+    <None Remove="Pages\HomePage.xaml" />
+    <None Remove="Pages\RoomsPage.xaml" />
+    <None Remove="Pages\SearchPage.xaml" />
+    <None Remove="Styles\Buttons.xaml" />
+    <None Remove="Styles\ComboBox.xaml" />
+    <None Remove="Styles\Datepicker.xaml" />
+    <None Remove="Styles\MainStyle.xaml" />
+    <None Remove="Themes\LightTheme.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.1.2" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.8.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Resource Include="Assets\Avatars\avatar-2.jpg" />
+    <Page Include="Assets\Icons\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\DetailsPage.xaml" />
+    <Page Include="Pages\FoodMenuPage.xaml" />
+    <Page Include="Pages\HomePage.xaml" />
+    <Page Include="Pages\RoomsPage.xaml" />
+    <Page Include="Pages\SearchPage.xaml" />
+    <Page Include="Styles\Buttons.xaml" />
+    <Page Include="Styles\ComboBox.xaml" />
+    <Page Include="Styles\Datepicker.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Styles\MainStyle.xaml" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <Resource Include="Themes\LightTheme.xaml" />
+  </ItemGroup>
+
+</Project>

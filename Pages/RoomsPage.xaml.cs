@@ -15,12 +15,10 @@ using System.Windows.Shapes;
 
 namespace HotelManagementSystem.Pages
 {
-    /// <summary>
-    /// Lógica de interacción para PaymentPage.xaml
-    /// </summary>
-    public partial class PaymentPage : Page
+
+    public partial class RoomsPage : Page
     {
-        public PaymentPage()
+        public RoomsPage()
         {
             InitializeComponent();
         }

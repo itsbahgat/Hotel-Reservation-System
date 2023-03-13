@@ -15,10 +15,9 @@ using System.Windows.Shapes;
 
 namespace HotelManagementSystem.Pages
 {
-
-    public partial class HomePage : Page
+    public partial class FoodMenuPage : Page
     {
-        public HomePage()
+        public FoodMenuPage()
         {
             InitializeComponent();
         }
