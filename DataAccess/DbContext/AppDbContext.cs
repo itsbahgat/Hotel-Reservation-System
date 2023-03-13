@@ -22,7 +22,8 @@ namespace DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Login>()
-                .ToTable("Logins");
+                .ToTable("Logins");   
+            
         }
 
     }

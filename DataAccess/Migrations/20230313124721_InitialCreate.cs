@@ -21,9 +21,6 @@ namespace DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Logins", x => x.username);
                 });
-
-            migrationBuilder.Sql("INSERT INTO Logins Values ('admin', 'admin')");
-
         }
 
         /// <inheritdoc />
@@ -31,8 +28,6 @@ namespace DataAccess.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Logins");
-
-            migrationBuilder.Sql("DELETE MyNewTable WHERE username= 'admin'");
         }
     }
 }
