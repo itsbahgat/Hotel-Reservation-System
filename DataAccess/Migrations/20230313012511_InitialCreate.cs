@@ -14,13 +14,16 @@ namespace DataAccess.Migrations
                 name: "Logins",
                 columns: table => new
                 {
-                    username = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    username = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    password = table.Column<string>(type: "nvarchar(50)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Logins", x => x.username);
                 });
+
+            migrationBuilder.Sql("INSERT INTO Logins Values ('admin', 'admin')");
+
         }
 
         /// <inheritdoc />
@@ -28,6 +31,8 @@ namespace DataAccess.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Logins");
+
+            migrationBuilder.Sql("DELETE MyNewTable WHERE username= 'admin'");
         }
     }
 }
