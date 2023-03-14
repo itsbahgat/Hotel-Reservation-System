@@ -36,12 +36,19 @@ namespace HotelManagementSystem.Pages
 
         private void SearchTermTextBox_TextChanged(object sender, RoutedEventArgs e)
         {
-            if (SearchTermTextBox.Text.Length > 0 && !isAnimationTriggered)
+            if (SearchTermTextBox.Text.Length > 0 )
             {
+
+                if (!isAnimationTriggered)
+                {
                 Storyboard moveUpStoryboard = (Storyboard)FindResource("MoveUpStoryboard");
                 moveUpStoryboard.Begin();
                 isAnimationTriggered = true;
                 LoadingIndicator.Visibility = Visibility.Visible;
+
+            }
+                else
+                    FillDataGrid(SearchTermTextBox.Text.ToLower());
 
             }
 
@@ -49,7 +56,7 @@ namespace HotelManagementSystem.Pages
             {
                 ReservationList.ItemsSource = null;
                 ReservationList.Visibility = Visibility.Hidden;
-                LoadingIndicator.Visibility = Visibility.Hidden;
+                LoadingIndicator.Visibility = Visibility.Collapsed;
 
 
 
@@ -64,35 +71,37 @@ namespace HotelManagementSystem.Pages
         private void MoveUpStoryboard_Completed(object sender, EventArgs e)
         {
             ReservationList.Visibility = Visibility.Visible;
-            FillDataGrid();
+            FillDataGrid(SearchTermTextBox.Text.ToLower());
         }
 
 
-        private void FillDataGrid()
+        private void FillDataGrid(string searchQuery)
         {
-            string searchQuery = SearchTermTextBox.Text;
-            var results = _context.Reservations.Where(x =>  x.FirstName.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.LastName.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.BirthDay.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.Gender.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.PhoneNumber.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.EmailAddress.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.StreetAddress.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.AptSuite.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.City.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.State.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.ZipCode.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.RoomType.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.RoomFloor.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.RoomNumber.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.PaymentType.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.CardType.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.CardNumber.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.CardExp.ToLower().Contains(searchQuery.ToLower()) ||
-                                                            x.CardCvc.ToLower().Contains(searchQuery.ToLower())
+            var results = _context.Reservations.Where(x =>
+                                                        x.FirstName.ToLower().Contains(searchQuery) ||
+                                                        x.LastName.ToLower().Contains(searchQuery) ||
+                                                        x.BirthDay.ToLower().Contains(searchQuery) ||
+                                                        x.Gender.ToLower().Contains(searchQuery) ||
+                                                        x.PhoneNumber.ToLower().Contains(searchQuery) ||
+                                                        x.EmailAddress.ToLower().Contains(searchQuery) ||
+                                                        x.StreetAddress.ToLower().Contains(searchQuery) ||
+                                                        x.AptSuite.ToLower().Contains(searchQuery) ||
+                                                        x.City.ToLower().Contains(searchQuery) ||
+                                                        x.State.ToLower().Contains(searchQuery) ||
+                                                        x.ZipCode.ToLower().Contains(searchQuery) ||
+                                                        x.RoomType.ToLower().Contains(searchQuery) ||
+                                                        x.RoomFloor.ToLower().Contains(searchQuery) ||
+                                                        x.RoomNumber.ToLower().Contains(searchQuery) ||
+                                                        x.PaymentType.ToLower().Contains(searchQuery) ||
+                                                        x.CardType.ToLower().Contains(searchQuery) ||
+                                                        x.CardNumber.ToLower().Contains(searchQuery) ||
+                                                        x.CardExp.ToLower().Contains(searchQuery) ||
+                                                        x.CardCvc.ToLower().Contains(searchQuery)
                                                        ).ToList();
 
             ReservationList.ItemsSource = results;
+            ReservationList.Visibility = Visibility.Visible;
         }
+
     }
 }
