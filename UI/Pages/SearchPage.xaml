@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:HotelManagementSystem.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -12,16 +13,40 @@
 
         <Grid>
             <TextBox x:Name="SearchTermTextBox" 
-                     Width="282" 
-                     Tag="🔎 Search" 
-                     Style="{StaticResource PlaceholderTextBox}" 
+                    Panel.ZIndex="2"
+                    Style="{StaticResource MaterialDesignTextBox}" 
                      Height="40" 
                      FontSize="16" 
-                     Margin="240,40,278,370"
-                     BorderThickness="2"
-                     />
+                    Margin="240,40,278,50" Padding="30,4,0,4" 
+                    BorderThickness="0,0,0,2" 
+                    materialDesign:HintAssist.Hint="Search" 
+                    materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource PrimaryBlueColor}"
+                    CaretBrush="{StaticResource PrimaryBlueColor}"
+                    TextChanged="SearchTermTextBox_GotFocus">
+                <TextBox.Background>
+                    <VisualBrush Stretch="None" AlignmentX="Left" TileMode="None">
+                        <VisualBrush.Visual>
+                            <Path Fill="{StaticResource PrimaryBlueColor}" Data="{DynamicResource search}"/>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </TextBox.Background>
 
+                <TextBox.RenderTransform>
+                    <TranslateTransform Y="0"/>
+                </TextBox.RenderTransform>
+            </TextBox>
 
+            <TextBlock x:Name="LoadingIndicator" 
+                       Text="Loading..." 
+                       Visibility="Collapsed" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+
+            <DataGrid Name="ReservationList" 
+                      IsReadOnly="True" 
+                      Margin="0,120,0,0"
+                      Panel.ZIndex="1" 
+                      Visibility="Hidden" />
         </Grid>
 
 
