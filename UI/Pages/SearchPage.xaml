@@ -36,7 +36,7 @@
                     materialDesign:HintAssist.Hint="Search" 
                     materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource PrimaryBlueColor}"
                     CaretBrush="{StaticResource PrimaryBlueColor}"
-                    TextChanged="SearchTermTextBox_GotFocus">
+                    TextChanged="SearchTermTextBox_TextChanged">
                 <TextBox.Background>
                     <VisualBrush Stretch="None" AlignmentX="Left" TileMode="None">
                         <VisualBrush.Visual>

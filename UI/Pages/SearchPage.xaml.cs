@@ -34,7 +34,7 @@ namespace HotelManagementSystem.Pages
 
         }
 
-        private void SearchTermTextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void SearchTermTextBox_TextChanged(object sender, RoutedEventArgs e)
         {
             if (SearchTermTextBox.Text.Length > 0 && !isAnimationTriggered)
             {
