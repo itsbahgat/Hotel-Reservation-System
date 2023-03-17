@@ -3,11 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
       xmlns:local="clr-namespace:HotelManagementSystem.Pages"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
       Title="HomePage">
+
 
 
     <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColor}">
@@ -22,38 +25,38 @@
             <StackPanel Grid.Column="0">
                 <TextBlock Text="Name: " FontFamily="Poppins" Margin="10,20,10,0"/>
                 <StackPanel Orientation="Horizontal" Height="34">
-                    <TextBox  Tag="First" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="120" HorizontalAlignment="Left" Margin="10,0,5,0" FontFamily="Segoe UI Light"/>
-                    <TextBox  Tag="Last" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"  Width="126" Margin="5,0,5,0" FontFamily="Segoe UI Light"/>
+                    <TextBox x:Name="firstName"  Tag="First" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="120" HorizontalAlignment="Left" Margin="10,0,5,0" FontFamily="Segoe UI Light"/>
+                    <TextBox x:Name="lastName"  Tag="Last" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"  Width="126" Margin="5,0,5,0" FontFamily="Segoe UI Light"/>
                 </StackPanel>
 
                 <TextBlock Text="Birthday: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <DatePicker Style="{DynamicResource DatePickerWithIcon}"  Height="30" x:Name="datePicker1" Width="255" HorizontalAlignment="Left" Margin="10,0,0,0" FontFamily="Segoe UI Light" >
+                <DatePicker Style="{DynamicResource DatePickerWithIcon}"  Height="30" x:Name="birthdate" Width="255" HorizontalAlignment="Left" Margin="10,0,0,0" FontFamily="Segoe UI Light" >
 
                 </DatePicker>
 
                 <TextBlock Text="Gender : " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <ComboBox  Width="256" HorizontalAlignment="Left" Height="30" SelectedIndex="0" Style="{StaticResource ComboboxStyle}" FontFamily="Segoe UI Light" Margin="10,0,0,0" BorderBrush="#FFDDDDDD">
+                <ComboBox x:Name="gender"  Width="256" HorizontalAlignment="Left" Height="30" SelectedIndex="0" Style="{StaticResource ComboboxStyle}" FontFamily="Segoe UI Light" Margin="10,0,0,0" BorderBrush="#FFDDDDDD">
                     <ComboBoxItem IsEnabled="False" Foreground="Gray">Select Something</ComboBoxItem>
                     <ComboBoxItem>Male</ComboBoxItem>
                     <ComboBoxItem>Female</ComboBoxItem>
                 </ComboBox>
 
                 <TextBlock Text="Phone Number: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <TextBox  Tag="011-111-11345" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12" Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,5"/>
+                <TextBox x:Name="phone"  Tag="011-111-11345" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12" Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,5"/>
 
                 <TextBlock Text="Email: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <TextBox  Tag="example@hamada.com" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,0" Padding="5,5,5,0"/>
+                <TextBox x:Name="email"  Tag="example@hamada.com" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,0" Padding="5,5,5,0"/>
                 <TextBlock Text="Address: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <TextBox  Tag="street address" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,0"/>
+                <TextBox x:Name="stAddress"  Tag="street address" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,0"/>
 
                 <StackPanel Height="30" Orientation="Horizontal" Margin="0,5,0,0">
-                    <TextBox  Tag="Apartment" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="120" HorizontalAlignment="Left" Margin="10,0,5,0" FontFamily="Segoe UI Light" VerticalAlignment="Top"/>
-                    <TextBox  Tag="City" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"  Width="126" Margin="5,0,5,0" FontFamily="Segoe UI Light" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <TextBox x:Name="apartment"  Tag="Apartment" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="120" HorizontalAlignment="Left" Margin="10,0,5,0" FontFamily="Segoe UI Light" VerticalAlignment="Top"/>
+                    <TextBox x:Name="city"  Tag="City" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"  Width="126" Margin="5,0,5,0" FontFamily="Segoe UI Light" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="40">
 
-                    <ComboBox  Width="120" Height="30" SelectedIndex="0" Margin="10,0,0,0" Style="{StaticResource ComboboxStyle}" FontFamily="Segoe UI Light">
-                        <ComboBoxItem IsEnabled="False" Foreground="Gray">Governorate</ComboBoxItem>
+                    <ComboBox x:Name="governorate"  Width="120" Height="30" SelectedIndex="0" Margin="10,0,0,0" Style="{StaticResource ComboboxStyle}" FontFamily="Segoe UI Light">
+                        <ComboBoxItem  IsEnabled="False" Foreground="Gray">Governorate</ComboBoxItem>
                         <ComboBoxItem>القاهرة</ComboBoxItem>
                         <ComboBoxItem>الجيزة</ComboBoxItem>
                         <ComboBoxItem>الإسكندرية</ComboBoxItem>
@@ -78,7 +81,7 @@
                         <ComboBoxItem>الإسماعيلية</ComboBoxItem>
                         <ComboBoxItem>السويس</ComboBoxItem>
                     </ComboBox>
-                    <TextBox  Tag="Zip Code" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"  Width="126" FontFamily="Segoe UI Light" Margin="10,5,5,5"/>
+                    <TextBox x:Name="zipCode"  Tag="Zip Code" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"  Width="126" FontFamily="Segoe UI Light" Margin="10,5,5,5"/>
 
                 </StackPanel>
 
@@ -91,28 +94,55 @@
             <StackPanel Grid.Column="1">
                 <TextBlock Text="Booking Details: " FontFamily="Poppins" Margin="10,20,10,0"/>
                 <StackPanel Orientation="Horizontal" Height="36">
-                    <ComboBox  Width="120" Margin="10,0,5,0" Height="33" SelectedIndex="0" Style="{StaticResource ComboboxStyle}">
+                    <ComboBox x:Name="guestNum"  Width="120" Margin="10,0,5,0" Height="33" SelectedIndex="0" Style="{StaticResource ComboboxStyle}">
                         <ComboBoxItem IsEnabled="False" Foreground="Gray">No. of Guests</ComboBoxItem>
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                        <ComboBoxItem Content="6"/>
                     </ComboBox>
-                    <ComboBox  Width="120" Margin="5,0,5,0" Height="33" SelectedIndex="0" Style="{StaticResource ComboboxStyle}">
+                    <ComboBox x:Name="roomType"  
+                              Width="120" 
+                              Margin="5,0,5,0" 
+                              Height="33" 
+                              SelectedIndex="0" 
+                              Style="{StaticResource ComboboxStyle}" BorderThickness="1,0,0,1">
                         <ComboBoxItem IsEnabled="False" Foreground="Gray">Room Type</ComboBoxItem>
+                        <ComboBoxItem Content="Single"/>
+                        <ComboBoxItem Content="Double"/>
+                        <ComboBoxItem Content="Twin"/>
+                        <ComboBoxItem Content="Duplex"/>
+                        <ComboBoxItem Content="Suite"/>
                     </ComboBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Height="36" Margin="0,5,0,0">
-                    <ComboBox  Width="120" Margin="10,0,5,0" Height="33" SelectedIndex="0" Style="{StaticResource ComboboxStyle}">
+                    <ComboBox x:Name="floorNum"
+                              Width="120" 
+                              Margin="10,0,5,0" Height="33" 
+                              Style="{StaticResource ComboboxStyle}"
+                              ItemContainerStyle="{DynamicResource MaterialDesignListBoxItem}"
+                              SelectedIndex="0">
                         <ComboBoxItem IsEnabled="False" Foreground="Gray">Floor No.</ComboBoxItem>
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
                     </ComboBox>
-                    <ComboBox  Width="120" Margin="5,0,5,0" Height="33" SelectedIndex="0" Style="{StaticResource ComboboxStyle}">
+
+                    <ComboBox x:Name="roomNum"  Width="120" Margin="5,0,5,0" Height="33" SelectedIndex="0" Style="{StaticResource ComboboxStyle}">
                         <ComboBoxItem IsEnabled="False" Foreground="Gray">Room No.</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
 
                 <TextBlock Text="Entry Date: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <DatePicker Height="30" x:Name="EntryDate" Width="255" HorizontalAlignment="Left" Margin="10,0,0,0" SelectedDate="{x:Static sys:DateTime.Today}" Style="{DynamicResource DatePickerWithIcon}" />
+                <DatePicker Height="30" x:Name="arrivalDate" Width="255" HorizontalAlignment="Left" Margin="10,0,0,0" SelectedDate="{x:Static sys:DateTime.Today}" Style="{DynamicResource DatePickerWithIcon}" />
 
                 <TextBlock Text="Exit Date: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <DatePicker Height="30" x:Name="ExitDate" Width="255" HorizontalAlignment="Left" Margin="10,0,0,0" SelectedDate="{x:Static sys:DateTime.Today }" Style="{DynamicResource DatePickerWithIcon}" />
+                <DatePicker Height="30" x:Name="leavingDate" Width="255" HorizontalAlignment="Left" Margin="10,0,0,0" SelectedDate="{x:Static sys:DateTime.Today }" Style="{DynamicResource DatePickerWithIcon}" />
 
 
                 <Button Style="{StaticResource OutlineButton}" Content="Food and Menu"  Width="256" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,20,0,0"/>
