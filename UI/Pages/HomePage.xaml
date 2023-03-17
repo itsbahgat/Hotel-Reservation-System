@@ -154,7 +154,16 @@
                     <CheckBox Content="Food/Supply Status" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Light" />
                 </StackPanel>
                 <Button Style="{StaticResource OutlineButton}" Content="Finalize Bill" Width="256" HorizontalAlignment="Left" Margin="10,30,0,0" Height="32" />
-                <Button Style="{StaticResource OutlineButton}" Content="Sumbit" Width="256" HorizontalAlignment="Left" Margin="10,10,0,0" BorderBrush="#FF12931A" Foreground="#FF12931A" FontFamily="Segoe UI Semibold" Height="35" />
+                <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" 
+                        Content="Sumbit" Width="256" 
+                        x:Name="sumbitButton"
+                        HorizontalAlignment="Left" 
+                        Margin="10,10,0,0" 
+                        BorderBrush="Transparent" 
+                        Background="#FF12931A"
+                        Foreground="White" 
+                        FontFamily="Segoe UI Semibold" 
+                        Height="35" Click="sumbitButton_Click" />
             </StackPanel>
 
 
