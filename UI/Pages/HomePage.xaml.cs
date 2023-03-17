@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DataAccess;
+using DataAccess.Entities;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,12 +26,20 @@ namespace HotelManagementSystem.Pages
         public HomePage()
         {
             InitializeComponent();
+
+            ReservationComboBox.ItemsSource = _context.Reservations.Select(r => $" {r.Id} | {r.FirstName} {r.LastName} | {r.PhoneNumber}" ).ToList(); ;
+
         }
+
+
+
 
         private void sumbitButton_Click(object sender, RoutedEventArgs e)
         {
 
-            _context.Reservations.Add(new Reservation { FirstName = firstName.Text,
+            _context.Reservations.Add(new Reservation
+            {
+                FirstName = firstName.Text,
                                                         LastName = lastName.Text,
                                                         BirthDay = birthdate.Text,
                                                         Gender = gender.Text,
@@ -43,8 +54,10 @@ namespace HotelManagementSystem.Pages
                                                         RoomNumber = roomNum.Text,
                                                         NumberGuest = Convert.ToInt32(guestNum.Text),
                                                         RoomType = roomType.Text,
-                                                        ArrivalTime= Convert.ToDateTime(arrivalDate.Text),
-                                                        LeavingTime= Convert.ToDateTime(leavingDate.Text),
+                ArrivalTime = Convert.ToDateTime(arrivalDate.Text),
+                LeavingTime = Convert.ToDateTime(leavingDate.Text),
+                CheckIn = checkin.IsChecked,
+                SupplyStatus = FoodSupply.IsChecked
                                                    });
 
             _context.SaveChanges();

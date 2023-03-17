@@ -149,9 +149,9 @@
 
 
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <CheckBox Content="Check-in" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" FontFamily="Segoe UI Light" />
-                    <CheckBox Content="Send Sms" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" FontFamily="Segoe UI Light" />
-                    <CheckBox Content="Food/Supply Status" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Light" />
+                    <CheckBox x:Name="checkin" Content="Check-in" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" FontFamily="Segoe UI Light" />
+                    <CheckBox x:Name="sendSms" Content="Send Sms" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" FontFamily="Segoe UI Light" />
+                    <CheckBox x:Name="FoodSupply" Content="Food/Supply Status" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Light" />
                 </StackPanel>
                 <Button Style="{StaticResource OutlineButton}" Content="Finalize Bill" Width="256" HorizontalAlignment="Left" Margin="10,30,0,0" Height="32" />
                 <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" 
@@ -166,6 +166,11 @@
                         Height="35" Click="sumbitButton_Click" />
             </StackPanel>
 
+
+            <StackPanel Grid.Column="2">
+                <ComboBox x:Name="ReservationComboBox" ItemsSource="{Binding ReservationDetails}"/>
+
+            </StackPanel>
 
 
             <Border Background="#FFCECECE" Width="1" CornerRadius="0,2,2,0" Margin="279,58,2,58"/>
