@@ -1,6 +1,6 @@
 ﻿using DataAccess;
 using DataAccess.Entities;
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -51,6 +51,30 @@ namespace HotelManagementSystem.Pages
             OccupiedRoomsList.ItemsSource = new ObservableCollection<Reservation>(reservations);
 
         }
+        private bool isToggleOn = false;
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            ColumnDefinition leftColumn = MyGrid.ColumnDefinitions[0];
+            ColumnDefinition rightColumn = MyGrid.ColumnDefinitions[2];
+
+            if (!isToggleOn)
+            {
+                leftColumn.Width = new GridLength(1, GridUnitType.Star);
+                rightColumn.Width = new GridLength(0);
+                ToggleButton.Content = "«";
+            }
+            else
+            {
+                leftColumn.Width = new GridLength(0);
+                rightColumn.Width = new GridLength(1, GridUnitType.Star);
+                ToggleButton.Content = "»";
+            }
+
+            isToggleOn = !isToggleOn;
+        }
+
+
         public void FillReservedRoomsList()
         {
 
