@@ -9,6 +9,67 @@
       Title="PaymentPage">
 
     <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColor}">
-        <Label Content="Rooms" Foreground="Black" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!--<Label Content="Rooms" Foreground="Black" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
+
+
+
+        <Grid x:Name="MyGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <ScrollViewer Grid.Column="0">
+                <StackPanel >
+                    <Label Content="Occupied Rooms" Foreground="Black" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Padding="4,10,4,4"/>
+                    <DataGrid Name="OccupiedRoomsList" 
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Guest Name" Binding="{Binding FullName}" />
+                            <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}" />
+                            <DataGridTextColumn Header="Room Type" Binding="{Binding RoomType}" />
+                            <DataGridTextColumn Header="Room No." Binding="{Binding RoomNumber}" />
+                        </DataGrid.Columns>
+
+                        <DataGrid.Resources>
+                            <Style TargetType="ScrollBar" BasedOn="{StaticResource MaterialDesignScrollBarMinimal}">
+                            </Style>
+                        </DataGrid.Resources>
+                    </DataGrid>
+                </StackPanel>
+            </ScrollViewer>
+
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center"   ShowsPreview="true"/>
+            <Button x:Name="ToggleButton"
+
+            <ScrollViewer Grid.Column="2" >
+                <StackPanel >
+                    <Label Content="Reserved Rooms" Foreground="Black" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="4,10,4,4"/>
+                    <DataGrid x:Name="ReservedRoomsList" 
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Guest Name" Binding="{Binding FullName}" />
+                            <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}" />
+                            <DataGridTextColumn Header="Room Type" Binding="{Binding RoomType}" />
+                            <DataGridTextColumn Header="Room No." Binding="{Binding RoomNumber}" />
+                            <DataGridTextColumn Header="check-in" Binding="{Binding ArrivalTime}" />
+                            <DataGridTextColumn Header="check-out" Binding="{Binding LeavingTime}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </ScrollViewer>
+
+
+
+
+
+        </Grid>
     </Border>
 </Page>
