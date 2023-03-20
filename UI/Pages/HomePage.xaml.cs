@@ -22,6 +22,8 @@ namespace HotelManagementSystem.Pages
     public partial class HomePage : Page
     {
         private AppDbContext _context = new AppDbContext();
+        int[] foodSelection = new int[3];
+        bool[] specialNeeds = new bool[3];
 
         public HomePage()
         {
@@ -63,8 +65,7 @@ namespace HotelManagementSystem.Pages
                 Lunch = foodSelection[2],
                 Cleaning = specialNeeds[0],
                 Towel = specialNeeds[1],
-                SSurprise = specialNeeds[2]
-
+                SSurprise = specialNeeds[2],
                                                    });
 
             _context.SaveChanges();
@@ -75,14 +76,13 @@ namespace HotelManagementSystem.Pages
         {
             var foodmenu = new FoodMenuPage();
 
-            foodmenu.FoodMenuDataReturned += FoodmenuData_PassedBack;
+            foodmenu.FoodMenuDataReturned += FoodmenuData_Returned;
             foodmenu.Show();
 
         }
 
-        int[] foodSelection = new int[3]; 
-        bool[] specialNeeds = new bool[3];
-        private void FoodmenuData_PassedBack(object sender, FoodMenuDataEventArgs e)
+
+        private void FoodmenuData_Returned(object sender, FoodMenuDataEventArgs e)
         {
              foodSelection = e.FoodSelection;
              specialNeeds = e.SpecialNeeds;
