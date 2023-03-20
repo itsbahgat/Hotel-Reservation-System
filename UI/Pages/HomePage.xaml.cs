@@ -57,11 +57,35 @@ namespace HotelManagementSystem.Pages
                 ArrivalTime = Convert.ToDateTime(arrivalDate.Text),
                 LeavingTime = Convert.ToDateTime(leavingDate.Text),
                 CheckIn = checkin.IsChecked,
-                SupplyStatus = FoodSupply.IsChecked
+                SupplyStatus = FoodSupply.IsChecked,
+                BreakFast = foodSelection[0],
+                Dinner = foodSelection[1],
+                Lunch = foodSelection[2],
+                Cleaning = specialNeeds[0],
+                Towel = specialNeeds[1],
+                SSurprise = specialNeeds[2]
+
                                                    });
 
             _context.SaveChanges();
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var foodmenu = new FoodMenuPage();
+
+            foodmenu.FoodMenuDataReturned += FoodmenuData_PassedBack;
+            foodmenu.Show();
+
+        }
+
+        int[] foodSelection = new int[3]; 
+        bool[] specialNeeds = new bool[3];
+        private void FoodmenuData_PassedBack(object sender, FoodMenuDataEventArgs e)
+        {
+             foodSelection = e.FoodSelection;
+             specialNeeds = e.SpecialNeeds;
         }
     }
 }
