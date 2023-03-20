@@ -48,7 +48,7 @@
                             <BitmapImage  UriSource="../Assets/Images/breakfast.png" />
                         </Image.Source>
                     </Image>
-                    <CheckBox x:Name="BreakfastCheckbox" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Background="{DynamicResource PrimaryBlueColor}" Padding="4,-2,0,0" Checked="EnableBreakfastTextBox" Unchecked="DisableBreakfastTextBox">Breakfast? ($7)</CheckBox>
+                    <CheckBox x:Name="BreakfastCheckbox" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Background="{DynamicResource PrimaryBlueColor}" Padding="4,-2,0,0" Checked="EnableBreakfastTextBox" Unchecked="DisableBreakfastTextBox">Breakfast ($7)</CheckBox>
                     <TextBox x:Name="breakfastTxt"  Tag="Quantity" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="140" HorizontalAlignment="Center" Margin="10,10,5,0" FontFamily="Segoe UI Light" IsReadOnly="True"/>
                 </StackPanel>
         
@@ -59,7 +59,7 @@
                             <BitmapImage  UriSource="../Assets/Images/dinner.png" />
                         </Image.Source>
                     </Image>
-                    <CheckBox x:Name="dinnerCheckbox" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Background="{DynamicResource PrimaryBlueColor}" Padding="4,-2,0,0" Checked="EnableDinnerTextBox" Unchecked="DisableDinnerTextBox">dinner? ($15)</CheckBox>
+                    <CheckBox x:Name="dinnerCheckbox" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Background="{DynamicResource PrimaryBlueColor}" Padding="4,-2,0,0" Checked="EnableDinnerTextBox" Unchecked="DisableDinnerTextBox">Dinner ($15)</CheckBox>
                     <TextBox x:Name="dinnerTxt"  Tag="Quantity" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="140" HorizontalAlignment="Center" Margin="10,10,5,0" FontFamily="Segoe UI Light" IsReadOnly="True"/>
                 </StackPanel>
 
@@ -69,7 +69,7 @@
                             <BitmapImage  UriSource="../Assets/Images/lunch.png" />
                         </Image.Source>
                     </Image>
-                    <CheckBox x:Name="LunchCheckbox" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Background="{DynamicResource PrimaryBlueColor}" Padding="4,-2,0,0" Checked="EnableLunchTextBox" Unchecked="DisableLunchTextBox">lunch? ($15)</CheckBox>
+                    <CheckBox x:Name="LunchCheckbox" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Background="{DynamicResource PrimaryBlueColor}" Padding="4,-2,0,0" Checked="EnableLunchTextBox" Unchecked="DisableLunchTextBox">Lunch ($15)</CheckBox>
                     <TextBox x:Name="lunchTxt"  Tag="Quantity" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="140" HorizontalAlignment="Center" Margin="10,10,5,0" FontFamily="Segoe UI Light" IsReadOnly="True"/>
                 </StackPanel>
 
