@@ -35,9 +35,9 @@ namespace HotelManagementSystem.Pages
             int[] foodSelection = new int[3];
             bool[] specialNeeds = new bool[3];
 
-            int.TryParse(breakfastTxt.Text, out foodSelection[0]);
-            int.TryParse(breakfastTxt.Text, out foodSelection[1]);
-            int.TryParse(breakfastTxt.Text, out foodSelection[2]);
+            foodSelection[0] = int.TryParse(breakfastTxt.Text, out int breakfastValue) ? breakfastValue*7 : 0;
+            foodSelection[1] = int.TryParse(dinnerTxt.Text, out int dinnerValue) ? dinnerValue*15 : 0;
+            foodSelection[2] = int.TryParse(lunchTxt.Text, out int lunchValue) ? lunchValue*15 : 0;
 
             specialNeeds[0] = (bool)CleaningCheckbox.IsChecked;
             specialNeeds[1] = (bool)TowelsCheckbox.IsChecked;
@@ -56,7 +56,7 @@ namespace HotelManagementSystem.Pages
 
         private void DisableBreakfastTextBox(object sender, RoutedEventArgs e)
         {
-            breakfastTxt.Text = string.Empty;
+            breakfastTxt.Text = null;
             breakfastTxt.IsReadOnly = true;
         }
 
@@ -68,7 +68,7 @@ namespace HotelManagementSystem.Pages
 
         private void DisableDinnerTextBox(object sender, RoutedEventArgs e)
         {
-            dinnerTxt.Text = string.Empty;
+            dinnerTxt.Text = null;
             dinnerTxt.IsReadOnly = true;
 
         }
@@ -80,7 +80,7 @@ namespace HotelManagementSystem.Pages
 
         private void DisableLunchTextBox(object sender, RoutedEventArgs e)
         {
-            lunchTxt.Text = string.Empty;
+            lunchTxt.Text = null;
             lunchTxt.IsReadOnly = true;
     }
 
