@@ -17,6 +17,8 @@ namespace HotelManagementSystem.Pages
 {
     public partial class FoodMenuPage : Window
     {
+        public event EventHandler<FoodMenuDataEventArgs> FoodMenuDataReturned;
+
         public FoodMenuPage()
         {
             InitializeComponent();
@@ -28,6 +30,24 @@ namespace HotelManagementSystem.Pages
             this.Close();
         }
 
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            int[] foodSelection = new int[3];
+            bool[] specialNeeds = new bool[3];
+
+            int.TryParse(breakfastTxt.Text, out foodSelection[0]);
+            int.TryParse(breakfastTxt.Text, out foodSelection[1]);
+            int.TryParse(breakfastTxt.Text, out foodSelection[2]);
+
+            specialNeeds[0] = (bool)CleaningCheckbox.IsChecked;
+            specialNeeds[1] = (bool)TowelsCheckbox.IsChecked;
+            specialNeeds[2] = (bool)SSurpriseCheckbox.IsChecked;
+
+
+            FoodMenuDataReturned?.Invoke(this, new FoodMenuDataEventArgs(foodSelection, specialNeeds));
+            this.Close();
+
+        }
 
         private void EnableBreakfastTextBox(object sender, RoutedEventArgs e)
         {
@@ -64,5 +84,19 @@ namespace HotelManagementSystem.Pages
             lunchTxt.IsReadOnly = true;
     }
 
+ 
     }
+
+    public class FoodMenuDataEventArgs : EventArgs
+    {
+        public int[] FoodSelection { get; set; }
+        public bool[] SpecialNeeds { get; set; }
+
+        public FoodMenuDataEventArgs(int[] foodSelection, bool[] specialNeeds)
+        {
+            FoodSelection = foodSelection;
+            SpecialNeeds = specialNeeds;
+        }
+    }
+
 }
