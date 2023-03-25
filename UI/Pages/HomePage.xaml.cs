@@ -150,6 +150,20 @@ namespace HotelManagementSystem.Pages
             }
         }
 
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedId != null)
+            {
+                var x = _context.Reservations.Find(selectedId);
+                 _context.Reservations.Remove(x);
+                 _context.SaveChanges();
+                MessageBox.Show("DELETED");
+                ReservationComboBox.Items.Refresh();
+                PopulateReservationComboBox();
+            }
+
+        }
+
 
         private int CalculateRoomBill()
         {
