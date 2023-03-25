@@ -186,7 +186,26 @@
 
 
             <StackPanel Grid.Column="2">
-                <ComboBox x:Name="ReservationComboBox" ItemsSource="{Binding ReservationDetails}"/>
+                <TextBlock Text="Existing Reservations: " FontFamily="Poppins" Margin="15,20,10,5" HorizontalAlignment="Left"/>
+
+                <ComboBox x:Name="ReservationComboBox"
+                          ItemsSource="{Binding ReservationDetails}"
+                          SelectionChanged="LoadControllers"
+                          Style="{StaticResource MaterialDesignOutlinedComboBox}" 
+                          materialDesign:HintAssist.Hint="Select Reservation"
+                          materialDesign:HintAssist.IsFloating="False"
+                          materialDesign:HintAssist.Foreground="{DynamicResource PrimaryBlueColor}"
+                          BorderBrush="#FFACACAC" MaxDropDownHeight="286" Padding="10,9,16,7" 
+                          Width="190" Height="36" Margin="15,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                
+                <Button Style="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}" 
+                    Content="Update" Width="200" 
+                    x:Name="updateButton" 
+                    BorderBrush="Transparent" 
+                    FontFamily="Segoe UI Semibold" 
+                    Click="sumbitButton_Click" 
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,215,0,0" Background="{DynamicResource PrimaryBlueColor}" />
+                
 
             </StackPanel>
 
