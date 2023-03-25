@@ -161,6 +161,19 @@ namespace HotelManagementSystem.Pages
 
         }   
         
+        private int CalculateFoodBill()
+        {
+            int BreakfastCost = foodSelection[0]*7;
+            int DinnerCost = foodSelection[1]*15;
+            int LunchCost = foodSelection[2]*15;
+
+            int FoodBill = BreakfastCost + DinnerCost + LunchCost;
+
+          
+            return FoodBill;
+
+        }
+
         private void ClearEverything(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Refresh();
