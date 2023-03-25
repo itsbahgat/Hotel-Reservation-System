@@ -94,5 +94,9 @@ namespace HotelManagementSystem.Pages
              foodSelection = e.FoodSelection;
              specialNeeds = e.SpecialNeeds;
         }
+        private void ClearEverything(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Refresh();
+        }
     }
 }
