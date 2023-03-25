@@ -206,6 +206,16 @@
                     Click="sumbitButton_Click" 
                     HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,215,0,0" Background="{DynamicResource PrimaryBlueColor}" />
                 
+                <Button Style="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}" 
+                    Content="Delete" Width="200" 
+                    x:Name="deleteButton" 
+                    BorderBrush="Transparent" 
+                    FontFamily="Segoe UI Semibold" 
+                    Click="deleteButton_Click" 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" Margin="15,3,0,0" Background="#FFB43838" />
+                
+
 
             </StackPanel>
 
