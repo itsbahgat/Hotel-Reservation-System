@@ -1,9 +1,14 @@
 ﻿using DataAccess;
 using DataAccess.Entities;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
+using System.Reflection.Emit;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,8 +31,17 @@ namespace HotelManagementSystem.Pages
     public partial class HomePage : Page
     {
         private AppDbContext _context = new AppDbContext();
+        public event PropertyChangedEventHandler PropertyChanged;
+
         int[] foodSelection = new int[3];
         bool[] specialNeeds = new bool[3];
+        string[] paymentInfo = new string[4];
+        double totalBill;
+        int? selectedId = null;
+        Reservation reservation;
+        PaymentPage paymentPage = new PaymentPage();
+        FoodMenuPage foodmenu = new FoodMenuPage();
+
 
         private readonly Dictionary<string, string> roomFloor = new(){
                 {"Single","1"},
@@ -122,9 +136,31 @@ namespace HotelManagementSystem.Pages
             selectedId = null;
         }
 
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var foodmenu = new FoodMenuPage();
+            if(selectedId != null)
+            {
+                reservation = _context.Reservations.Find(selectedId);
+                foodmenu.BreakfastCheckbox.IsChecked = reservation.BreakFast==0? false :true;
+                foodmenu.breakfastTxt.Text = reservation.BreakFast.ToString();
+
+                foodmenu.dinnerCheckbox.IsChecked = reservation.Dinner==0? false :true;
+                foodmenu.dinnerTxt.Text = reservation.Dinner.ToString();
+
+
+                foodmenu.LunchCheckbox.IsChecked = reservation.Lunch == 0 ? false : true;
+                foodmenu.lunchTxt.Text = reservation.Lunch.ToString();
+
+                foodmenu.CleaningCheckbox.IsChecked = reservation.Cleaning;
+                foodmenu.TowelsCheckbox.IsChecked = reservation.Towel;
+                foodmenu.SSurpriseCheckbox.IsChecked = reservation.SSurprise;
+
+
+
+              
+
+            }
 
             foodmenu.FoodMenuDataReturned += FoodmenuData_Returned;
             foodmenu.Show();
@@ -137,6 +173,43 @@ namespace HotelManagementSystem.Pages
              foodSelection = e.FoodSelection;
              specialNeeds = e.SpecialNeeds;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (selectedId != null)
+            {
+                reservation = _context.Reservations.Find(selectedId);
+                paymentPage.FillTextBoxes(CalculateRoomBill(), reservation.FoodBill??0);
+
+
+                paymentPage.PaymentType.Text = reservation.PaymentType;
+                paymentPage.cardNum.Text = reservation.CardNumber;
+                paymentPage.cvc.Text = reservation.CardCvc;
+
+                paymentPage.expMonth.Text = reservation.CardExp?.Split('/')[0];
+                paymentPage.expYear.Text = reservation.CardExp?.Split('/')[1];
+
+
+
+
+            }
+            else
+            {
+                paymentPage.FillTextBoxes(CalculateRoomBill(), CalculateFoodBill());
+            }
+
+            paymentPage.PaymentDataReturned += PaymentData_Returned;
+
+            paymentPage.Show();
+        }
+
+
+        private void PaymentData_Returned(object sender, PaymentDataEventArgs e)
+        {
+            paymentInfo = e.PaymentInfo;
+            totalBill = e.TotalBill;
+        }
+
         private void UpdateFloorNumComboBox(object sender, RoutedEventArgs e)
         {
             FloorNumComboBox.Text = roomFloor[((ComboBoxItem)RoomTypeComboBox.SelectedItem).Content.ToString().Trim()];
