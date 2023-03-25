@@ -43,40 +43,63 @@ namespace HotelManagementSystem.Pages
 
         }
 
+
+
         private void sumbitButton_Click(object sender, RoutedEventArgs e)
         {
 
-            _context.Reservations.Add(new Reservation
+
+            if (selectedId != null)
             {
-                FirstName = firstName.Text,
-                                                        LastName = lastName.Text,
-                                                        BirthDay = birthdate.Text,
-                                                        Gender = gender.Text,
-                                                        PhoneNumber = phone.Text,
-                                                        EmailAddress = email.Text,
-                                                        StreetAddress = stAddress.Text,
-                                                        AptSuite = apartment.Text,
-                                                        City = city.Text,
-                                                        State = governorate.Text,
-                                                        ZipCode = zipCode.Text,
-                                                        RoomFloor = floorNum.Text,
-                                                        RoomNumber = roomNum.Text,
-                                                        NumberGuest = Convert.ToInt32(guestNum.Text),
-                                                        RoomType = roomType.Text,
-                ArrivalTime = Convert.ToDateTime(arrivalDate.Text),
-                LeavingTime = Convert.ToDateTime(leavingDate.Text),
-                CheckIn = checkin.IsChecked,
-                SupplyStatus = FoodSupply.IsChecked,
-                BreakFast = foodSelection[0],
-                Dinner = foodSelection[1],
-                Lunch = foodSelection[2],
-                Cleaning = specialNeeds[0],
-                Towel = specialNeeds[1],
-                SSurprise = specialNeeds[2],
-                                                   });
+                // Update existing reservation
+                reservation = _context.Reservations.Find(selectedId);
+                if (reservation == null)
+                {
+                    MessageBox.Show("Reservation not found");
+                    return;
+                }
+            }
+            else
+            {
+                // Add new reservation
+                reservation = new Reservation();
+                _context.Reservations.Add(reservation);
+            }
+
+            reservation.FirstName = firstName.Text;
+            reservation.LastName = lastName.Text;
+            reservation.BirthDay = birthdate.Text;
+            reservation.Gender = gender.Text;
+            reservation.PhoneNumber = phone.Text;
+            reservation.EmailAddress = email.Text;
+            reservation.StreetAddress = stAddress.Text;
+            reservation.AptSuite = apartment.Text;
+            reservation.City = city.Text;
+            reservation.State = governorate.Text;
+            reservation.ZipCode = zipCode.Text;
+            reservation.RoomFloor = FloorNumComboBox.Text;
+            reservation.RoomNumber = roomNum.Text;
+            reservation.NumberGuest = Convert.ToInt32(guestNum.Text);
+            reservation.RoomType = RoomTypeComboBox.Text;
+            reservation.ArrivalTime = Convert.ToDateTime(arrivalDate.Text);
+            reservation.LeavingTime = Convert.ToDateTime(leavingDate.Text);
+            reservation.CheckIn = checkin.IsChecked;
+            reservation.SupplyStatus = FoodSupply.IsChecked;
+            reservation.BreakFast = foodSelection[0];
+            reservation.Dinner = foodSelection[1];
+            reservation.Lunch = foodSelection[2];
+            reservation.Cleaning = specialNeeds[0];
+            reservation.Towel = specialNeeds[1];
+            reservation.SSurprise = specialNeeds[2];
+            reservation.TotalBill = totalBill;
+            reservation.FoodBill = CalculateFoodBill();
+            reservation.PaymentType = paymentInfo[0];
+            reservation.CardNumber = paymentInfo[1];
+            reservation.CardExp = paymentInfo[2];
+            reservation.CardCvc = paymentInfo[3];
 
             _context.SaveChanges();
-
+            selectedId = null;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
