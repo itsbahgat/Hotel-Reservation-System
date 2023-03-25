@@ -28,6 +28,7 @@ namespace HotelManagementSystem.Pages
         public HomePage()
         {
             InitializeComponent();
+            PopulateReservationComboBox();
 
             roomNum.ItemsSource = new List<string>() { "101", "102", "103", "104", "105", "106", "107", "108", "109", "110",
             "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310",
@@ -35,8 +36,12 @@ namespace HotelManagementSystem.Pages
 
         }
 
+        private void PopulateReservationComboBox()
+        {
 
+            ReservationComboBox.ItemsSource = _context.Reservations.Select(r => $" {r.Id} | {r.FirstName} {r.LastName} | {r.PhoneNumber}").ToList(); ;
 
+        }
 
         private void sumbitButton_Click(object sender, RoutedEventArgs e)
         {
