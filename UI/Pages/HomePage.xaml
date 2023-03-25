@@ -216,6 +216,14 @@
                     VerticalAlignment="Bottom" Margin="15,3,0,0" Background="#FFB43838" />
                 
 
+                
+                <Button Style="{StaticResource MaterialDesignOutlinedLightButton}" 
+                    Content="New Reservation" Width="200" 
+                    BorderBrush="#FF958E8E" 
+                    FontFamily="Segoe UI Semibold" 
+                    HorizontalAlignment="Left"
+                    Click="ClearEverything"
+                    VerticalAlignment="Bottom" Foreground="#FF7E8890" Margin="15,5,0,0" />
 
             </StackPanel>
 
