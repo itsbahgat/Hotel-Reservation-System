@@ -150,6 +150,17 @@ namespace HotelManagementSystem.Pages
             }
         }
 
+
+        private int CalculateRoomBill()
+        {
+            int guestNumber = int.Parse(guestNum.Text);
+            int extraGuestFee = guestNumber >= 3 ? guestNumber*5 : 0;
+            int RoomFee = roomPrices[((ComboBoxItem)RoomTypeComboBox.SelectedItem).Content.ToString().Trim()];
+            int RoomBill = RoomFee + extraGuestFee;
+            return RoomBill;
+
+        }   
+        
         private void ClearEverything(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Refresh();
