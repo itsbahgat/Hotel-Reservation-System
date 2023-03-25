@@ -29,6 +29,22 @@ namespace HotelManagementSystem.Pages
         int[] foodSelection = new int[3];
         bool[] specialNeeds = new bool[3];
 
+        private readonly Dictionary<string, string> roomFloor = new(){
+                {"Single","1"},
+                {"Double","2"},
+                {"Twin","3"},
+                {"Duplex","4"},
+                {"Suite","5"}};
+
+
+        private readonly Dictionary<string, int> roomPrices = new(){
+                {"Single",149},
+                {"Double",299},
+                {"Twin",349},
+                {"Duplex",399},
+                {"Suite",499}};
+
+
         public HomePage()
         {
             InitializeComponent();
@@ -121,6 +137,17 @@ namespace HotelManagementSystem.Pages
              foodSelection = e.FoodSelection;
              specialNeeds = e.SpecialNeeds;
         }
+        private void UpdateFloorNumComboBox(object sender, RoutedEventArgs e)
+        {
+            FloorNumComboBox.Text = roomFloor[((ComboBoxItem)RoomTypeComboBox.SelectedItem).Content.ToString().Trim()];
+        }
+
+        private void UpdateRoomTypeComboBox(object sender, SelectionChangedEventArgs e)
+        {
+            Dictionary<string, string> reversedDic = roomFloor.ToDictionary(x => x.Value, x => x.Key);
+            RoomTypeComboBox.Text = reversedDic[((ComboBoxItem)FloorNumComboBox.SelectedItem).Content.ToString().Trim()];
+        }
+
         private void LoadControllers(object sender, SelectionChangedEventArgs e)
         {
             string selectedItem =(string) ReservationComboBox.SelectedItem;
