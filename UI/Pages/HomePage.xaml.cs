@@ -15,6 +15,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static HotelManagementSystem.Pages.PaymentPage;
+using System.ComponentModel;
+using Microsoft.Identity.Client;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace HotelManagementSystem.Pages
 {
@@ -117,6 +121,35 @@ namespace HotelManagementSystem.Pages
              foodSelection = e.FoodSelection;
              specialNeeds = e.SpecialNeeds;
         }
+        private void LoadControllers(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedItem =(string) ReservationComboBox.SelectedItem;
+            if (selectedItem != null)
+            {
+
+            selectedId = int.Parse(selectedItem.Split('|')[0].Trim());
+            var x = _context.Reservations.FirstOrDefault(r => r.Id == selectedId);
+            firstName.Text = x.FirstName;
+            lastName.Text = x.LastName;
+            birthdate.Text = x.BirthDay;
+            gender.Text = x.Gender;
+            phone.Text = x.PhoneNumber;
+            email.Text = x.EmailAddress;
+            stAddress.Text = x.StreetAddress;
+            apartment.Text = x.AptSuite;
+            city.Text = x.City;
+            governorate.Text = x.State;
+            zipCode.Text = x.ZipCode;
+            FloorNumComboBox.Text = x.RoomFloor;
+            roomNum.Text = x.RoomNumber;
+            guestNum.Text = (x.NumberGuest).ToString();
+            RoomTypeComboBox.Text = x.RoomType;
+            arrivalDate.Text = x.ArrivalTime.ToString();
+            leavingDate.Text = x.LeavingTime.ToString();
+            checkin.IsChecked = x.CheckIn;
+            }
+        }
+
         private void ClearEverything(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Refresh();
