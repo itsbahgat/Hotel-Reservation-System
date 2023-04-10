@@ -56,8 +56,11 @@
                     <StackPanel Grid.Row="3">
                         <RadioButton x:Name="rdHome" IsChecked="True" Content="Home" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource home}" Click="rdHome_Click"/>
                         <RadioButton x:Name="rdSearch" Content="Search" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource search}" Margin="0 5 0 5" Click="rdSearch_Click"/>
-                        <RadioButton x:Name="rdGuestDetails" Content="Guest Details" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource details}" Click="rdGuestDetails_Click"/>
+                        <RadioButton x:Name="rdGuestDetails" Content="Guest Details" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource users1}" Click="rdGuestDetails_Click"/>
                         <RadioButton x:Name="rdRooms" Content="Room Availability" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource rooms}" Margin="0 5 0 5" Click="rdRooms_Click"/>
+                        <RadioButton x:Name="rdKitchenTODO" Content="TO-DO" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource TODO1}" Margin="0 5 0 5" Click="rdKitchenTODO_Click" Visibility="Collapsed"/>
+                        <RadioButton x:Name="rdKitchenGuestDetails" Content="Guest Details" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource users}" Margin="0 5 0 5" Click="rdKitchenGuestDetails_Click" Visibility="Collapsed"/>
+                        <RadioButton x:Name="rdLogout" Content="Logout" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource logout}" Margin="0 5 0 5" Click="rdLogout_Click"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Orientation="Horizontal" Width="200" Margin="0 0 0 20">
@@ -68,7 +71,7 @@
                         </Ellipse>
                         <StackPanel Orientation="Vertical" Margin="8 0 0 0">
                             <Label Content="Hamada" Foreground="{DynamicResource TextPrimaryColor}" FontSize="14" FontWeight="SemiBold" HorizontalContentAlignment="Center" HorizontalAlignment="Left"/>
-                            <Label Content="Hamada@gmail.com" Foreground="{DynamicResource PrimaryGrayColor}" FontSize="11" FontWeight="Regular" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
+                            <Label Content="Admin" Foreground="{DynamicResource PrimaryGrayColor}" FontSize="11" FontWeight="Regular" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
                         </StackPanel>
                     </StackPanel>
                 </Grid>
