@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HotelManagementSystem.Pages;
+using MaterialDesignColors;
 
 namespace HotelManagementSystem
 {
@@ -64,6 +65,34 @@ namespace HotelManagementSystem
         private void rdRooms_Click(object sender, RoutedEventArgs e)
         {
             PagesNavigation.Navigate(new System.Uri("Pages/RoomsPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void rdLogout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWin = new LoginWindow();
+            loginWin.Show();
+            Close();
+        }  
+        
+        public void ShowKitchenButtons()
+        {
+            rdHome.Visibility = Visibility.Collapsed;
+            rdSearch.Visibility = Visibility.Collapsed;
+            rdGuestDetails.Visibility = Visibility.Collapsed;
+            rdRooms.Visibility = Visibility.Collapsed;
+            rdKitchenTODO.Visibility = Visibility.Visible;
+            rdKitchenGuestDetails.Visibility = Visibility.Visible;
+        }
+
+        private void rdKitchenGuestDetails_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new System.Uri("Pages/Kitchen/DetailsPage.xaml", UriKind.RelativeOrAbsolute));
+
+        }
+
+        private void rdKitchenTODO_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new System.Uri("Pages/Kitchen/TodoPage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }
