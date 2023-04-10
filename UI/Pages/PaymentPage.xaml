@@ -1,0 +1,132 @@
+﻿<Window x:Class="HotelManagementSystem.Pages.PaymentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:HotelManagementSystem.Pages"
+      mc:Ignorable="d" 
+      Height="380" Width="400"
+      Title="PaymentPage"
+      Background="{x:Null}"
+       AllowsTransparency="True"
+      WindowStyle="None" 
+      WindowStartupLocation="CenterScreen" >
+
+
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" Margin="25" materialDesign:ElevationAssist.Elevation="Dp4">
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="9"></RowDefinition>
+                    <RowDefinition Height="141"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button HorizontalAlignment="Right" Margin="0,10,20,0" x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}"  Tag="IsCloseButton" Click="btnClose_Click" Grid.Column="1" Width="25"/>
+
+
+                <Label Content="- Bill Details : "
+                       Grid.Row="1"
+                       Grid.ColumnSpan="2"
+                       Foreground="Black"  
+                       FontWeight="Bold" Padding="4,10,4,4" HorizontalAlignment="Left" Margin="28,0,0,10" Width="84" FontFamily="Gadugi"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="40,0,0,0" FontWeight="Bold" FontFamily="Cascadia Code" Foreground="#FF525252" Width="63"> Room Bill</TextBlock>
+                <TextBlock x:Name="roomBillTxt" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Foreground="#FF8A8A8A" FontFamily="Cascadia Code" Width="100">0 EGP</TextBlock>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="40,0,0,0" FontWeight="Bold" HorizontalAlignment="Left" FontFamily="Cascadia Code" Foreground="#FF525252" Width="63"> Food Bill</TextBlock>
+                <TextBlock x:Name="foodBillTxt" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Foreground="#FF8A8A8A" FontFamily="Cascadia Code" Width="100">0 EGP</TextBlock>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Margin="40,0,0,0" FontWeight="Bold" HorizontalAlignment="Left" FontFamily="Cascadia Code" Foreground="#FF525252" Width="21"> Tax</TextBlock>
+                <TextBlock x:Name="taxTxt" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Foreground="#FF8A8A8A" FontFamily="Cascadia Code" Width="100">0 EGP</TextBlock>
+
+                <Separator Grid.Row="5" Grid.ColumnSpan="2" Margin="30,5,0,5" Opacity="0.5" Width="260" HorizontalAlignment="Left"/>
+
+                <TextBlock Grid.Row="6" Grid.Column="0" Margin="40,0,0,0" HorizontalAlignment="Left" Foreground="Black" FontWeight="Bold" FontFamily="Cascadia Code" FontSize="14" Width="41"> Total</TextBlock>
+                <TextBlock x:Name="totalTxt" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Foreground="#FF2D2D2D" FontFamily="Cascadia Code" Width="89" Margin="64,0,0,0"> 0 EGP</TextBlock>
+
+
+                <Label Content="- Payment Details :"
+                       Grid.Row="7"
+                       Grid.ColumnSpan="2"
+                       Foreground="Black" Padding="4,10,4,4" HorizontalAlignment="Left" Margin="28,20,0,0" Width="116" FontFamily="Gadugi" FontWeight="Bold"/>
+
+
+                <StackPanel  Grid.Row="9" Grid.ColumnSpan="2" Margin="0,0,28,0" Background="#FFF6F8FA" Height="64" VerticalAlignment="Top" HorizontalAlignment="Right" Width="292">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Name="PaymentType"   materialDesign:HintAssist.Hint="Payment Type" Width="97" HorizontalAlignment="Left" Height="30" Style="{StaticResource MaterialDesignComboBox}" FontFamily="Segoe UI Light" Margin="10,0,0,0" BorderBrush="#FFDDDDDD">
+                            <ComboBoxItem>Debit</ComboBoxItem>
+                            <ComboBoxItem>Credit</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBox x:Name="cardNum" materialDesign:HintAssist.Hint="9999-9999-9999-999" Style="{StaticResource MaterialDesignTextBoxBase}" Height="30" FontSize="12" Width="194" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,0" BorderBrush="#FFDDDDDD"/>
+
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Name="expMonth" materialDesign:HintAssist.Hint="MM" Width="97" HorizontalAlignment="Left" Height="30" Style="{StaticResource MaterialDesignComboBox}" FontFamily="Segoe UI Light" Margin="10,0,0,0" BorderBrush="#FFDDDDDD">
+                            <ComboBoxItem>01</ComboBoxItem>
+                            <ComboBoxItem>02</ComboBoxItem>
+                            <ComboBoxItem>03</ComboBoxItem>
+                            <ComboBoxItem>04</ComboBoxItem>
+                            <ComboBoxItem>05</ComboBoxItem>
+                            <ComboBoxItem>06</ComboBoxItem>
+                            <ComboBoxItem>07</ComboBoxItem>
+                            <ComboBoxItem>08</ComboBoxItem>
+                            <ComboBoxItem>09</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+
+                        </ComboBox>
+                        <ComboBox x:Name="expYear" materialDesign:HintAssist.Hint="YY" Width="97" HorizontalAlignment="Left" Height="30"  Style="{StaticResource MaterialDesignComboBox}" FontFamily="Segoe UI Light" Margin="10,0,0,0" BorderBrush="#FFDDDDDD">
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>21</ComboBoxItem>
+                            <ComboBoxItem>22</ComboBoxItem>
+                            <ComboBoxItem>23</ComboBoxItem>
+                            <ComboBoxItem>24</ComboBoxItem>
+                            <ComboBoxItem>25</ComboBoxItem>
+
+                        </ComboBox>
+
+                        <TextBox x:Name="cvc" materialDesign:HintAssist.Hint="CVC" Style="{StaticResource MaterialDesignTextBoxBase}" Height="30" FontSize="12" Width="87" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,0" BorderBrush="#FFDDDDDD"/>
+
+                    </StackPanel>
+
+
+                </StackPanel>
+
+
+
+                <Button Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        Grid.Column="1"                     
+                        Content="Next" Width="80" 
+                        x:Name="nextButton"
+                        HorizontalAlignment="Right" 
+                        BorderBrush="Transparent" 
+                        Background="{DynamicResource PrimaryBlueColor}"
+                        Foreground="White" 
+                        FontFamily="Segoe UI Semibold" Grid.Row="9" Margin="0,35,28,-13" FontSize="12" Click="nextButton_Click" />
+
+            </Grid>
+        </materialDesign:DialogHost>
+    </materialDesign:Card>
+
+</Window>
