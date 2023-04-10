@@ -1,0 +1,37 @@
+﻿<Page x:Class="HotelManagementSystem.Pages.Kitchen.DetailsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotelManagementSystem.Pages"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DetailsPage">
+
+    <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColor}">
+        <Grid>
+            <DataGrid Name="KitchenOverview"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Name" Binding="{Binding FullName}" />
+                    <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" />
+                    <DataGridTextColumn Header="Room Type" Binding="{Binding RoomType}" />
+                    <DataGridTextColumn Header="Room Floor" Binding="{Binding RoomFloor}" />
+                    <DataGridTextColumn Header="Room Number" Binding="{Binding RoomNumber}" />
+                    <DataGridTextColumn Header="Breakfast" Binding="{Binding BreakFast, StringFormat='{}{0:N0}'}" />
+                    <DataGridTextColumn Header="Lunch" Binding="{Binding Lunch, StringFormat='{}{0:N0}'}" />
+                    <DataGridTextColumn Header="Dinner" Binding="{Binding Dinner, StringFormat='{}{0:N0}'}" />
+                    <DataGridCheckBoxColumn Header="Cleaning" Binding="{Binding Cleaning}" />
+                    <DataGridCheckBoxColumn Header="Towel" Binding="{Binding Towel}" />
+                    <DataGridCheckBoxColumn Header="Surprise" Binding="{Binding SSurprise}" />
+                    <DataGridCheckBoxColumn Header="Supply Status" Binding="{Binding SupplyStatus}" />
+                    <DataGridTextColumn Header="Food Bill" Binding="{Binding FoodBill, StringFormat='{}{0:N0}'}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>
+</Page>
