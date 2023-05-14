@@ -10,9 +10,15 @@
 
   <ItemGroup>
     <None Remove="Assets\Avatars\avatar-2.jpg" />
+    <None Remove="Assets\Images\breakfast.png" />
+    <None Remove="Assets\Images\dinner.png" />
+    <None Remove="Assets\Images\lunch.png" />
     <None Remove="Pages\DetailsPage.xaml" />
     <None Remove="Pages\FoodMenuPage.xaml" />
     <None Remove="Pages\HomePage.xaml" />
+    <None Remove="Pages\KitchenDetailsPage.xaml" />
+    <None Remove="Pages\Kitchen\TodoPage.xaml" />
+    <None Remove="Pages\PaymentPage.xaml" />
     <None Remove="Pages\RoomsPage.xaml" />
     <None Remove="Pages\SearchPage.xaml" />
     <None Remove="Styles\Buttons.xaml" />
@@ -23,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignColors" Version="2.1.2" />
     <PackageReference Include="MaterialDesignThemes" Version="4.8.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -37,6 +42,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Resource Include="Assets\Images\breakfast.png" />
     <Resource Include="Assets\Avatars\avatar-2.jpg" />
     <Page Include="Assets\Icons\Icons.xaml">
       <SubType>Designer</SubType>
@@ -50,7 +56,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\Kitchen\DetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DetailsPage.xaml" />
+    <Page Include="Pages\Kitchen\TodoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PaymentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\FoodMenuPage.xaml" />
     <Page Include="Pages\HomePage.xaml" />
     <Page Include="Pages\RoomsPage.xaml" />
@@ -63,6 +78,14 @@
   <ItemGroup>
     <Page Include="Styles\MainStyle.xaml" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <Reference Include="MaterialDesignColors">
+      <HintPath>bin\Debug\net7.0-windows\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf">
+      <HintPath>bin\Debug\net7.0-windows\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Resource Include="Assets\Images\dinner.png" />
+    <Resource Include="Assets\Images\lunch.png" />
     <Resource Include="Themes\LightTheme.xaml" />
   </ItemGroup>
 

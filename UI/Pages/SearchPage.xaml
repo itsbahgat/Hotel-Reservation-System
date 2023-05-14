@@ -18,7 +18,7 @@
         <Storyboard x:Key="MoveDownStoryboard">
             <DoubleAnimation Storyboard.TargetName="SearchTermTextBox"
                      Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
-                     From="-20" To="0" Duration="0:0:0.3"/>
+                     From="-20" To="0" Duration="0:0:0.4" BeginTime="0:0:0.35"/>
         </Storyboard>
 
 
@@ -29,8 +29,8 @@
             <TextBox x:Name="SearchTermTextBox" 
                     Panel.ZIndex="2"
                     Style="{StaticResource MaterialDesignTextBox}" 
-                     Height="40" 
-                     FontSize="16" 
+                    Height="40" 
+                    FontSize="16" 
                     Margin="240,40,278,50" Padding="30,4,0,4" 
                     BorderThickness="0,0,0,2" 
                     materialDesign:HintAssist.Hint="Search" 
@@ -49,21 +49,20 @@
                     <TranslateTransform Y="0"/>
                 </TextBox.RenderTransform>
             </TextBox>
-
+            
             <TextBlock x:Name="LoadingIndicator" 
                        Text="Loading..." 
                        Visibility="Collapsed" 
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"/>
-
+            
             <DataGrid Name="ReservationList" 
                       IsReadOnly="True" 
                       Margin="0,120,0,0"
                       Panel.ZIndex="1" 
                       Visibility="Hidden" />
         </Grid>
-
-
+        
     </Border>
 
 

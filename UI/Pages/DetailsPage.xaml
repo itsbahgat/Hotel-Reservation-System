@@ -5,12 +5,41 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HotelManagementSystem.Pages"
       mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DetailsPage">
 
-    <Grid>
-        <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColor}">
-            <DataGrid Name="ReservationList" IsReadOnly="True"/>
-        </Border>
-    </Grid>
+    <!--<Page.Resources>
+        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Background" Value="{StaticResource PrimaryBlueColor}" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryBlueColor}" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Grid>
+                            <Border BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="10,10,0,0">
+                                <ContentPresenter Margin="6,3,6,3" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>-->
+
+    <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColor}">
+        <Grid>
+
+            <DataGrid Name="ReservationList"
+                      IsReadOnly="True">
+            </DataGrid>
+
+        </Grid>
+    </Border>
 </Page>

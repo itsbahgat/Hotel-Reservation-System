@@ -22,12 +22,14 @@ namespace HotelManagementSystem.Pages
         public FoodMenuPage()
         {
             InitializeComponent();
-        }
+        }   
         
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
+            this.Visibility = Visibility.Hidden;
+
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
@@ -35,9 +37,9 @@ namespace HotelManagementSystem.Pages
             int[] foodSelection = new int[3];
             bool[] specialNeeds = new bool[3];
 
-            foodSelection[0] = int.TryParse(breakfastTxt.Text, out int breakfastValue) ? breakfastValue*7 : 0;
-            foodSelection[1] = int.TryParse(dinnerTxt.Text, out int dinnerValue) ? dinnerValue*15 : 0;
-            foodSelection[2] = int.TryParse(lunchTxt.Text, out int lunchValue) ? lunchValue*15 : 0;
+            foodSelection[0] = int.TryParse(breakfastTxt.Text, out int breakfastValue) ? breakfastValue : 0;
+            foodSelection[1] = int.TryParse(dinnerTxt.Text, out int dinnerValue) ? dinnerValue : 0;
+            foodSelection[2] = int.TryParse(lunchTxt.Text, out int lunchValue) ? lunchValue : 0;
 
             specialNeeds[0] = (bool)CleaningCheckbox.IsChecked;
             specialNeeds[1] = (bool)TowelsCheckbox.IsChecked;
@@ -45,7 +47,7 @@ namespace HotelManagementSystem.Pages
 
 
             FoodMenuDataReturned?.Invoke(this, new FoodMenuDataEventArgs(foodSelection, specialNeeds));
-            this.Close();
+            this.Visibility = Visibility.Hidden;
 
         }
 
@@ -82,7 +84,7 @@ namespace HotelManagementSystem.Pages
         {
             lunchTxt.Text = null;
             lunchTxt.IsReadOnly = true;
-    }
+        }
 
  
     }

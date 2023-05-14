@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DataAccess;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using DataAccess;
-using DataAccess.Entities;
-using System.Collections.ObjectModel;
 using System.Windows.Media.Animation;
 
 namespace HotelManagementSystem.Pages
@@ -41,12 +29,12 @@ namespace HotelManagementSystem.Pages
 
                 if (!isAnimationTriggered)
                 {
-                Storyboard moveUpStoryboard = (Storyboard)FindResource("MoveUpStoryboard");
-                moveUpStoryboard.Begin();
-                isAnimationTriggered = true;
-                LoadingIndicator.Visibility = Visibility.Visible;
+                    Storyboard moveUpStoryboard = (Storyboard)FindResource("MoveUpStoryboard");
+                    moveUpStoryboard.Begin();
+                    isAnimationTriggered = true;
+                    LoadingIndicator.Visibility = Visibility.Visible;
 
-            }
+                }
                 else
                     FillDataGrid(SearchTermTextBox.Text.ToLower());
 
@@ -97,7 +85,7 @@ namespace HotelManagementSystem.Pages
                                                         x.CardNumber.ToLower().Contains(searchQuery) ||
                                                         x.CardExp.ToLower().Contains(searchQuery) ||
                                                         x.CardCvc.ToLower().Contains(searchQuery)
-                                                       ).ToList();
+                                                    ).ToList();
 
             ReservationList.ItemsSource = results;
             ReservationList.Visibility = Visibility.Visible;

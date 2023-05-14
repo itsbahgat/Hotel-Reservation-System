@@ -21,42 +21,42 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <TextBlock Text="Name: " FontFamily="Poppins" Margin="10,20,10,3"/>
+                <TextBlock Text="Name: " FontFamily="Poppins" Margin="20,20,10,3"/>
                 <StackPanel Orientation="Horizontal" Height="34">
-                    <TextBox x:Name="firstName"  Tag="First" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="120" HorizontalAlignment="Left" Margin="10,0,5,0" FontFamily="Segoe UI Light" Grid.IsSharedSizeScope="True"/>
+                    <TextBox x:Name="firstName"  Tag="First" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="120" HorizontalAlignment="Left" Margin="20,0,5,0" FontFamily="Segoe UI Light" Grid.IsSharedSizeScope="True"/>
                     <TextBox x:Name="lastName"  Tag="Last" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"  Width="126" Margin="5,0,5,0" FontFamily="Segoe UI Light"/>
                 </StackPanel>
 
-                <TextBlock Text="Birthday: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <DatePicker Style="{DynamicResource DatePickerWithIcon}"  Height="30" x:Name="birthdate" Width="255" HorizontalAlignment="Left" Margin="10,0,0,0" FontFamily="Segoe UI Light" >
+                <TextBlock Text="Birthday: " FontFamily="Poppins" Margin="20,10,0,0"/>
+                <DatePicker Style="{DynamicResource DatePickerWithIcon}"  Height="30" x:Name="birthdate" Width="255" HorizontalAlignment="Left" Margin="20,0,0,0" FontFamily="Segoe UI Light" >
                 </DatePicker>
 
-                <TextBlock Text="Gender : " FontFamily="Poppins" Margin="10,10,0,0"/>
+                <TextBlock Text="Gender : " FontFamily="Poppins" Margin="20,10,0,0"/>
                 <ComboBox x:Name="gender"  Width="256" HorizontalAlignment="Left" Height="30"
                            materialDesign:HintAssist.Hint="Select Gender"
                            materialDesign:HintAssist.IsFloating="False"
                            Style="{StaticResource MaterialDesignOutlinedComboBox}" 
                            materialDesign:HintAssist.Foreground="{DynamicResource PrimaryBlueColor}"                     
-                          FontFamily="Segoe UI Light" Margin="10,0,0,0" BorderBrush="#FFDDDDDD" Padding="10,5,10,5">
+                          FontFamily="Segoe UI Light" Margin="20,0,0,0" BorderBrush="#FFDDDDDD" Padding="10,5,10,5">
                     <ComboBoxItem>Male</ComboBoxItem>
                     <ComboBoxItem>Female</ComboBoxItem>
                 </ComboBox>
 
-                <TextBlock Text="Phone Number: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <TextBox x:Name="phone"  Tag="011-111-11345" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12" Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,5" TextChanged="ValidatePhoneNumber"/>
+                <TextBlock Text="Phone Number: " FontFamily="Poppins" Margin="20,10,0,0"/>
+                <TextBox x:Name="phone"  Tag="011-111-11345" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12" Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="20,0,5,5"/>
 
-                <TextBlock Text="Email: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <TextBox x:Name="email"  Tag="example@hamada.com" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,0" Padding="5,5,5,0"/>
-                <TextBlock Text="Address: " FontFamily="Poppins" Margin="10,10,0,0"/>
-                <TextBox x:Name="stAddress"  Tag="street address" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="10,0,5,0"/>
+                <TextBlock Text="Email: " FontFamily="Poppins" Margin="20,10,0,0"/>
+                <TextBox x:Name="email"  Tag="example@hamada.com" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="20,0,5,0" Padding="5,5,5,0"/>
+                <TextBlock Text="Address: " FontFamily="Poppins" Margin="20,10,0,0"/>
+                <TextBox x:Name="stAddress"  Tag="street address" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="256" HorizontalAlignment="Left" FontFamily="Segoe UI Light" Margin="20,0,5,0"/>
 
                 <StackPanel Height="30" Orientation="Horizontal" Margin="0,5,0,0">
-                    <TextBox x:Name="apartment"  Tag="Apartment" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="120" HorizontalAlignment="Left" Margin="10,0,5,0" FontFamily="Segoe UI Light" VerticalAlignment="Top"/>
+                    <TextBox x:Name="apartment"  Tag="Apartment" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="120" HorizontalAlignment="Left" Margin="20,0,5,0" FontFamily="Segoe UI Light" VerticalAlignment="Top"/>
                     <TextBox x:Name="city"  Tag="City" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"  Width="126" Margin="5,0,5,0" FontFamily="Segoe UI Light" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="40">
 
-                    <ComboBox x:Name="governorate"  Width="120" Height="30" Margin="10,0,0,0"
+                    <ComboBox x:Name="governorate"  Width="120" Height="30" Margin="20,0,0,0"
                            materialDesign:HintAssist.Hint="Governorate"
                            materialDesign:HintAssist.IsFloating="False"
                            Style="{StaticResource MaterialDesignOutlinedComboBox}" 
@@ -168,8 +168,9 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                     <CheckBox x:Name="checkin" Content="Check-in" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" FontFamily="Segoe UI Light" />
-                    <CheckBox x:Name="sendSms" Content="Send Sms" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" FontFamily="Segoe UI Light" />
-                    <CheckBox x:Name="FoodSupply" Content="Food/Supply Status" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Light" />
+                    <CheckBox x:Name="sendSms" Content="Send Sms" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" FontFamily="Segoe UI Light" IsEnabled="False" />
+                    <CheckBox x:Name="SupplyStatus" Content="Food/Supply Status" FontSize="11" VerticalContentAlignment="Center" Padding="3,-1,0,0" Margin="10,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Light" 
+                      IsEnabled="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" />
                 </StackPanel>
                 <Button Style="{StaticResource OutlineButton}" Content="Finalize Bill" Width="256" HorizontalAlignment="Left" Margin="10,33,0,0" Height="32" Click="Button_Click_1" />
                 <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" 
@@ -197,7 +198,7 @@
                           materialDesign:HintAssist.Foreground="{DynamicResource PrimaryBlueColor}"
                           BorderBrush="#FFACACAC" MaxDropDownHeight="286" Padding="10,9,16,7" 
                           Width="190" Height="36" Margin="15,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                
+
                 <Button Style="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}" 
                     Content="Update" Width="200" 
                     x:Name="updateButton" 
@@ -205,18 +206,26 @@
                     FontFamily="Segoe UI Semibold" 
                     Click="sumbitButton_Click" 
                     HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,215,0,0" Background="{DynamicResource PrimaryBlueColor}" />
-                
+
                 <Button Style="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}" 
                     Content="Delete" Width="200" 
                     x:Name="deleteButton" 
                     BorderBrush="Transparent" 
                     FontFamily="Segoe UI Semibold" 
                     Click="deleteButton_Click" 
+
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom" Margin="15,3,0,0" Background="#FFB43838" />
-                
 
-                
+
+                <Button Style="{StaticResource MaterialDesignOutlinedLightButton}" 
+                    Content="Edit Reservation" Width="200" 
+                    BorderBrush="#FF958E8E" 
+                    FontFamily="Segoe UI Semibold" 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" Foreground="#FF7E8890" Margin="15,10,0,0" />
+
+
                 <Button Style="{StaticResource MaterialDesignOutlinedLightButton}" 
                     Content="New Reservation" Width="200" 
                     BorderBrush="#FF958E8E" 
@@ -228,12 +237,11 @@
             </StackPanel>
 
 
-            <Border Background="#FFCECECE" Width="1" CornerRadius="0,2,2,0" Margin="279,58,2,58" Height="320"/>
+            <Border Background="#FFCECECE" Width="1" CornerRadius="0,2,2,0" Margin="284,58,2,58" Height="320"/>
             <Border Background="#FFCECECE" Width="1" CornerRadius="0,2,2,0" Margin="276,75,5,75" Height="320" Grid.Column="1"/>
 
 
         </Grid>
-
 
     </Border>
 

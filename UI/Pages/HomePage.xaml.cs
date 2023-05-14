@@ -41,7 +41,7 @@ namespace HotelManagementSystem.Pages
         Reservation reservation;
         PaymentPage paymentPage = new PaymentPage();
         FoodMenuPage foodmenu = new FoodMenuPage();
-
+        
 
         private readonly Dictionary<string, string> roomFloor = new(){
                 {"Single","1"},
@@ -81,7 +81,7 @@ namespace HotelManagementSystem.Pages
 
         private void sumbitButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
 
             if (selectedId != null)
             {
@@ -118,7 +118,7 @@ namespace HotelManagementSystem.Pages
             reservation.ArrivalTime = Convert.ToDateTime(arrivalDate.Text);
             reservation.LeavingTime = Convert.ToDateTime(leavingDate.Text);
             reservation.CheckIn = checkin.IsChecked;
-            reservation.SupplyStatus = FoodSupply.IsChecked;
+            reservation.SupplyStatus = SupplyStatus.IsChecked;
             reservation.BreakFast = foodSelection[0];
             reservation.Dinner = foodSelection[1];
             reservation.Lunch = foodSelection[2];
@@ -247,6 +247,7 @@ namespace HotelManagementSystem.Pages
             arrivalDate.Text = x.ArrivalTime.ToString();
             leavingDate.Text = x.LeavingTime.ToString();
             checkin.IsChecked = x.CheckIn;
+            SupplyStatus.IsChecked = x.SupplyStatus;
             }
         }
 

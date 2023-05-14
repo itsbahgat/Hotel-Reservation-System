@@ -1,5 +1,4 @@
 ﻿using DataAccess.Entities;
-using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 using DataAccess;
 
 namespace HotelManagementSystem.Pages
@@ -31,7 +31,9 @@ namespace HotelManagementSystem.Pages
             List<Reservation> reservations = _context.Reservations.ToList();
 
             // Set the ItemsSource of the DataGrid to the reservations list
-            ReservationList.ItemsSource = reservations;
+            ReservationList.ItemsSource = new ObservableCollection<Reservation>(reservations);
+
+            //ReservationList.ItemsSource = reservations;
         }
     }
 }

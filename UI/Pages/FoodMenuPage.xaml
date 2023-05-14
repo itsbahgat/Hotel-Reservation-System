@@ -16,7 +16,7 @@
 
     <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" Margin="25" materialDesign:ElevationAssist.Elevation="Dp4">
         <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
-    <Grid>
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -51,7 +51,7 @@
                     <CheckBox x:Name="BreakfastCheckbox" HorizontalAlignment="Center" FontSize="14" VerticalAlignment="Center" Background="{DynamicResource PrimaryBlueColor}" Padding="4,-2,0,0" Checked="EnableBreakfastTextBox" Unchecked="DisableBreakfastTextBox">Breakfast ($7)</CheckBox>
                     <TextBox x:Name="breakfastTxt"  Tag="Quantity" Style="{StaticResource PlaceholderTextBox}" Height="30" FontSize="12"   Width="140" HorizontalAlignment="Center" Margin="10,10,5,0" FontFamily="Segoe UI Light" IsReadOnly="True"/>
                 </StackPanel>
-        
+
 
                 <StackPanel Grid.Row="2" Grid.Column="1">
                     <Image Width="150" Height="150">
@@ -103,7 +103,7 @@
                         FontFamily="Segoe UI Semibold" 
                         Height="35" Click="nextButton_Click" />
 
-    </Grid>
+            </Grid>
         </materialDesign:DialogHost>
     </materialDesign:Card>
 

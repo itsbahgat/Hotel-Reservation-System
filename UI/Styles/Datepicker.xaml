@@ -42,7 +42,7 @@
                                             Focusable="False"
                                             IsDefault="True"
                                             Width="24"
-                                            Margin="-3,0,0,0"
+                                            Margin="-3,-8,0,0"
                                             VerticalAlignment="Center"
                                             Background="Transparent">
                                         <Button.Template>
